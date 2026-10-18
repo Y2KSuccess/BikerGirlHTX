@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* ============================================================
+   THEME TOKENS
+   Theme A (Clean / Minimal / Cream) is active by default.
+   Theme B (Girly Pop) values are prepared but not wired up —
+   see README for how to activate a second theme later.
+   ============================================================ */
+:root {
+  /* Theme A — Clean / Minimal / Cream */
+  --color-cream: #f6f1e8;
+  --color-cream-soft: #faf7f1;
+  --color-cream-deep: #efe8da;
+  --color-ink: #14130f;
+  --color-ink-soft: #232019;
+  --color-taupe: #8a8070;
+  --color-taupe-light: #b3a996;
+  --color-sand: #e2d9c8;
+  --color-chrome: #cfd3d6;
+
+  --color-bg: var(--color-cream);
+  --color-bg-soft: var(--color-cream-soft);
+  --color-bg-deep: var(--color-cream-deep);
+  --color-fg: var(--color-ink);
+  --color-fg-soft: var(--color-ink-soft);
+  --color-muted: var(--color-taupe);
+  --color-muted-light: var(--color-taupe-light);
+  --color-border: var(--color-sand);
+  --color-accent: var(--color-chrome);
+
+  --font-display-fallback: Georgia, "Times New Roman", serif;
+  --font-sans-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-script-fallback: cursive;
+}
+
+/* Theme B tokens — reference only for V0.1, not active.
+:root[data-theme="girly-pop"] {
+  --color-bg: #fff3f4;
+  --color-bg-soft: #ffffff;
+  --color-bg-deep: #ffe1e6;
+  --color-fg: #3a0d18;
+  --color-fg-soft: #5c1b2b;
+  --color-muted: #b56072;
+  --color-muted-light: #e2a5b0;
+  --color-border: #ffd8de;
+  --color-accent: #ff2e76;
+}
+*/
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-cream-soft: var(--color-cream-soft);
+  --color-ink: var(--color-ink);
+  --color-taupe: var(--color-taupe);
+  --color-sand: var(--color-sand);
+  --color-chrome: var(--color-chrome);
+
+  --color-bg: var(--color-bg);
+  --color-bg-soft: var(--color-bg-soft);
+  --color-bg-deep: var(--color-bg-deep);
+  --color-fg: var(--color-fg);
+  --color-fg-soft: var(--color-fg-soft);
+  --color-muted: var(--color-muted);
+  --color-muted-light: var(--color-muted-light);
+  --color-border: var(--color-border);
+  --color-accent: var(--color-accent);
+
+  --font-display: var(--font-display), var(--font-display-fallback);
+  --font-sans: var(--font-sans), var(--font-sans-fallback);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
